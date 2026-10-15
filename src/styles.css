@@ -2315,3 +2315,199 @@ input:focus-visible {
     grid-row: 5;
   }
 }
+
+/* Clear instructions and high-contrast project states, including while disabled. */
+.game-instructions {
+  display: grid;
+  grid-template-columns: 0.85fr 0.85fr 1.3fr;
+  gap: 20px;
+  list-style: none;
+  margin: 25px 0;
+  padding: 18px 0;
+  border-block: 1px solid var(--border);
+}
+.game-instructions li {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  font-size: 12px;
+  color: #d6dee1;
+}
+.game-instructions strong {
+  color: var(--orange);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.game-spot {
+  background: #102330;
+  border: 2px solid #fff1d8;
+}
+.game-spot .marker-number {
+  color: #fff4df;
+  font-size: 15px;
+  font-weight: 800;
+}
+.game-spot:disabled {
+  opacity: 1;
+}
+.game-spot.unlocked {
+  background: #153e37;
+  border-color: #e5fff1;
+}
+.game-spot.unlocked .marker-number {
+  color: #fff;
+}
+.game-spot[aria-pressed="true"] {
+  background: #fff1d8;
+  border-color: #102330;
+}
+.game-spot[aria-pressed="true"] .marker-number {
+  color: #102330;
+}
+.spot-check {
+  position: absolute;
+  top: -7px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 2px solid #fff1d8;
+  background: #153e37;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+.spot-picker .project-key {
+  gap: 8px;
+}
+.spot-picker .project-key button {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  color: #f4eddf;
+}
+.spot-picker .project-key button:disabled {
+  opacity: 0.8;
+}
+.spot-picker .project-key .key-number {
+  color: #ffd1a9;
+  font-size: 12px;
+  margin: 0;
+}
+.spot-picker .project-key .key-project {
+  color: #f4eddf;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.key-state {
+  display: block;
+  font-size: 10px;
+  color: #cde8dd;
+  margin-top: 3px;
+}
+.story-heading > div,
+.story-layout > div {
+  min-width: 0;
+}
+.story-heading h3,
+.shooting-panel h2 {
+  overflow-wrap: anywhere;
+}
+.story-text,
+.game-panel .story-text {
+  min-height: 0;
+}
+.story-heading .subtle-button {
+  flex-shrink: 0;
+}
+@media (max-width: 750px) {
+  .game-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .game-court {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1;
+    margin-inline: auto;
+  }
+  .game-panel .story-panel,
+  .shooting-panel {
+    padding: 22px;
+  }
+  .story-panel,
+  .game-panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .story-steps {
+    gap: 6px;
+  }
+  .story-steps button {
+    flex: 1 1 95px;
+    min-height: 44px;
+    font-size: 11px;
+  }
+  .touch-controls {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .game-instructions {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding-block: 14px;
+    margin-block: 20px;
+  }
+  .game-instructions li {
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 12px;
+    font-size: 12px;
+    align-items: baseline;
+  }
+  .game-instructions strong {
+    font-size: 11px;
+  }
+  .mode-header nav {
+    flex-wrap: wrap;
+  }
+  .mode-header .section-nav {
+    width: 100%;
+    margin: 0;
+    gap: 8px;
+  }
+  .mode-header .section-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .story-heading {
+    gap: 12px;
+  }
+  .story-heading .eyebrow {
+    margin-bottom: 12px;
+  }
+  .contact-links a {
+    overflow-wrap: anywhere;
+  }
+  .technology-filter select {
+    min-width: 0;
+    max-width: min(230px, 70%);
+  }
+}
+@media (max-width: 360px) {
+  .spot-picker .project-key {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .game-panel .story-panel,
+  .shooting-panel {
+    padding: 18px;
+  }
+}
