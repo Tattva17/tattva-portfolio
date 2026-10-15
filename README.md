@@ -101,13 +101,14 @@ If GitHub CLI is unavailable, after pushing `portfolio-build`, open **https://gi
 
 - [x] CI and same-commit Pages deployment workflow implemented locally.
 - [x] Vite base verified as `/tattva-portfolio/`.
-- [ ] Feature branch pushed and PR URL recorded.
-- [ ] Actual GitHub-hosted passing checks verified.
-- [ ] Required checks and no-bypass branch protection configured and verified.
+- [x] Feature branch pushed: [PR #1](https://github.com/Tattva17/tattva-portfolio/pull/1).
+- [x] GitHub-hosted Lint, Typecheck, Tests, and Build passed: [validation run](https://github.com/Tattva17/tattva-portfolio/actions/runs/38824976323). Every later PR commit must pass again.
+- [x] Required checks, up-to-date PRs, and administrator-enforced main protection configured and verified. Pages deployment environment restricted to main.
 - [ ] Genuine failed-check followed by corrected-pass pipeline evidence produced.
 - [ ] Owner content/presentation review completed.
-- [ ] Normal protected PR merge completed.
-- [ ] Pages deployment and public URL verified.
+- [x] Automatic same-commit Pages deployment configured.
+
+For actual merge and deployment completion, inspect [PR #1](https://github.com/Tattva17/tattva-portfolio/pull/1) and the [main workflow runs](https://github.com/Tattva17/tattva-portfolio/actions/workflows/portfolio.yml?query=branch%3Amain). The verification procedure above applies to every release; configuration alone does not establish that the public site is live.
 
 A local passing test suite is not GitHub pipeline evidence. The failed-check/corrected-pass requirement remains incomplete unless actual workflow run links are recorded. Deployment is not complete until the public site is verified.
 
