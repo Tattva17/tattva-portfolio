@@ -200,13 +200,24 @@ export default function Game({
           {unlocked.length} of 6 unlocked
         </span>
       </div>
-      <p id="movement-instructions" className="movement-instructions">
-        Focus the court, then move with arrow keys or WASD. Enter interacts with
-        a nearby spot. In the shooting panel, press Space to start aiming and
-        Space again to shoot. After unlocking, keep moving without closing the
-        story. You can also use the direction pad or “Select a spot” buttons.
-        All stories are freely available in Explore.
-      </p>
+      <ol
+        id="movement-instructions"
+        className="game-instructions"
+        aria-label="Game controls"
+      >
+        <li>
+          <strong>Move</strong>
+          <span>Arrow keys / WASD.</span>
+        </li>
+        <li>
+          <strong>Interact</strong>
+          <span>Enter near a spot.</span>
+        </li>
+        <li>
+          <strong>Shoot</strong>
+          <span>Space to start, then Space to release.</span>
+        </li>
+      </ol>
       <div className="game-layout">
         <div>
           <div
@@ -278,10 +289,12 @@ export default function Game({
                 aria-label={`${project.name} — ${unlocked.includes(project.id) ? "unlocked" : "locked"}`}
                 onClick={() => open(project, true)}
               >
-                <span className="marker-number">
-                  {index + 1}
-                  {unlocked.includes(project.id) ? " ✓" : ""}
-                </span>
+                <span className="marker-number">{index + 1}</span>
+                {unlocked.includes(project.id) && (
+                  <span className="spot-check" aria-hidden="true">
+                    ✓
+                  </span>
+                )}
               </button>
             ))}
             <div
@@ -403,9 +416,13 @@ export default function Game({
                   disabled={movementPaused}
                   onClick={() => open(project, true)}
                 >
-                  <span>{index + 1}</span>
-                  {project.name}{" "}
-                  {unlocked.includes(project.id) ? "✓ Unlocked" : "· Locked"}
+                  <span className="key-number">{index + 1}</span>
+                  <span className="key-project">
+                    {project.name}
+                    <small className="key-state">
+                      {unlocked.includes(project.id) ? "✓ Unlocked" : "Locked"}
+                    </small>
+                  </span>
                 </button>
               ))}
             </div>
@@ -489,14 +506,13 @@ export default function Game({
                 </div>
                 <h2>{selected.name}</h2>
                 <p>
-                  Stop the indicator inside the green target zone (35–65%) to
-                  unlock this story. Press Space to start, then press Space
-                  again to shoot. Buttons work too.
+                  Release inside the green target zone (35–65%) to unlock this
+                  project.
                 </p>
                 {reduced && (
                   <p className="manual-note">
-                    Reduced-motion aiming: use the manual slider to choose a
-                    position, then Shoot. The same target rules apply.
+                    Reduced-motion aiming: choose a position with the slider,
+                    then Shoot.
                   </p>
                 )}
                 <div className="shot-meter" aria-hidden="true">

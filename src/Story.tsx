@@ -61,8 +61,7 @@ export default function Story({
       </ul>
       {project.id === "medilog" && (
         <p className="small-note">
-          Illustrative workflow only. This portfolio does not process medical
-          documents.
+          Illustrative prescription-to-digital workflow.
         </p>
       )}
     </article>
