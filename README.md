@@ -76,7 +76,7 @@ This is a static portfolio: no backend, database, contact form, physics, opponen
 
 ## GitHub Pages deployment
 
-The public site is intended for **https://tattva17.github.io/tattva-portfolio/**. This is the expected URL, not a claim that deployment has succeeded.
+The public site is live at **https://tattva17.github.io/tattva-portfolio/**. Its HTML, JavaScript, CSS, and favicon were verified with HTTP 200 responses and matched the local production build on October 15, 2026.
 
 `.github/workflows/portfolio.yml` runs four independently visible checks on **every pull request** and **every push to main**: **Lint**, **Typecheck**, **Tests**, and **Build**. Each installs dependencies with `npm ci` on Node.js 24. Official actions are pinned to verified commit SHAs.
 
@@ -104,13 +104,18 @@ If GitHub CLI is unavailable, after pushing `portfolio-build`, open **https://gi
 - [x] Feature branch pushed: [PR #1](https://github.com/Tattva17/tattva-portfolio/pull/1).
 - [x] GitHub-hosted Lint, Typecheck, Tests, and Build passed: [validation run](https://github.com/Tattva17/tattva-portfolio/actions/runs/38824976323). Every later PR commit must pass again.
 - [x] Required checks, up-to-date PRs, and administrator-enforced main protection configured and verified. Pages deployment environment restricted to main.
-- [ ] Genuine failed-check followed by corrected-pass pipeline evidence produced.
+- [x] Genuine failed-check followed by corrected-pass evidence on the same PR: [evidence PR #3](https://github.com/Tattva17/tattva-portfolio/pull/3).
 - [ ] Owner content/presentation review completed.
 - [x] Automatic same-commit Pages deployment configured.
 
-For actual merge and deployment completion, inspect [PR #1](https://github.com/Tattva17/tattva-portfolio/pull/1) and the [main workflow runs](https://github.com/Tattva17/tattva-portfolio/actions/workflows/portfolio.yml?query=branch%3Amain). The verification procedure above applies to every release; configuration alone does not establish that the public site is live.
+### Verified pipeline evidence
 
-A local passing test suite is not GitHub pipeline evidence. The failed-check/corrected-pass requirement remains incomplete unless actual workflow run links are recorded. Deployment is not complete until the public site is verified.
+- Evidence PR: [PR #3](https://github.com/Tattva17/tattva-portfolio/pull/3).
+- Intentional failed Tests check: [failed job](https://github.com/Tattva17/tattva-portfolio/actions/runs/38827447790/job/116738107071). Commit `4661912` added a clearly labeled temporary assertion solely to demonstrate CI failure. The job log confirms that assertion failed while all 47 existing tests passed.
+- Corrected passing run on the same PR: [run 38827597761](https://github.com/Tattva17/tattva-portfolio/actions/runs/38827597761). Commit `23cbb06` removed only the temporary test; Lint, Typecheck, Tests, and Build all passed. All 47 meaningful tests remain unchanged.
+- Existing successful automatic main deployment: [run 38826770090](https://github.com/Tattva17/tattva-portfolio/actions/runs/38826770090), for main commit `8eb208d`. The live site and production assets were verified after this deployment. Later releases must pass fresh validation before deploying.
+
+Main protection was verified through GitHub's API: the four checks are required from GitHub Actions, branches must be up to date, administrators are included, and pull requests are required. The Pages deployment environment allows only main. Application behavior, visual styling, meaningful tests, and workflow rules were not changed for this evidence exercise.
 
 ## Local verification — October 15, 2026
 
