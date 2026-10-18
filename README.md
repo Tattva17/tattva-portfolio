@@ -70,7 +70,7 @@ npm run build
 
 ## AI assistance and limitations
 
-Codex assisted with implementation, styling, resume-based copy, and automated tests. This disclosure does not claim human review has happened. The owner should review the content and understand the code before presenting or publishing.
+I used Codex to help with implementation, styling, resume-based copy, and automated tests. I personally reviewed the portfolio, but I have not exhaustively tested every feature or device.
 
 This is a static portfolio: no backend, database, contact form, physics, opponents, or camera system. The shot and medical-document workflow illustrations are illustrative. The portfolio does not process medical documents. No verified project URLs or public resume file were supplied, so those links are omitted. Optional skill-connection graphics were skipped to prioritize the complete core experience. Game progress is local to the browser, not synced between devices.
 
